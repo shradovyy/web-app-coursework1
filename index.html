@@ -13,20 +13,21 @@
     <div id="app">
 
         <nav>{{ sitename }}</nav>
+        
+        <button v-show="hasItemInCart">{{ cartCount }} cart</button>
 
         <main>
-
-            <div class="lesson">
+            <div class="lesson" v-for="lesson in lessons">
                 <div class="image"></div>
                 <div class="info">
-                    <h2 class="name">Test</h2>
-                    <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <div class="avai-spaces">Spaces left: 2</div>
-                    <div class="location">London</div>
-                    <div class="price">£25.00</div>
+                    <h2 class="name">{{ lesson.name }}</h2>
+                    <p class="desc">{{ lesson.description }}</p>
+                    <div class="avai-spaces">Spaces left: {{ lesson.availableSpaces }}</div>
+                    <div class="location">{{ lesson.location }}</div>
+                    <div class="price">£{{ lesson.price }}</div>
+                    <button @click="addToCart(lesson)" :disabled="isAvailable(lesson)">Add to cart</button>
                 </div>
             </div>
-
         </main>
 
     </div>

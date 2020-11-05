@@ -10,7 +10,7 @@ let lessons = [
     },
     {
         id: 2,
-        name: 'Music',
+        name: 'Maths',
         description: 'Lorem ipsum',
         image: 'coming.jpg',
         location: 'London',
