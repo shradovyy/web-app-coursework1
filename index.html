@@ -14,21 +14,32 @@
 
         <nav>{{ sitename }}</nav>
         
-        <button v-show="hasItemInCart">{{ cartCount }} cart</button>
+        
+        <main v-if="cartHidden">
+            <button v-show="hasItemInCart" @click="cartHidden = false" class="cart-btn">{{ cartCount }} cart</button>
 
-        <main>
-            <div class="lesson" v-for="lesson in lessons">
-                <div class="image"></div>
-                <div class="info">
-                    <h2 class="name">{{ lesson.name }}</h2>
-                    <p class="desc">{{ lesson.description }}</p>
-                    <div class="avai-spaces">Spaces left: {{ lesson.availableSpaces }}</div>
-                    <div class="location">{{ lesson.location }}</div>
-                    <div class="price">£{{ lesson.price }}</div>
-                    <button @click="addToCart(lesson)" :disabled="isAvailable(lesson)">Add to cart</button>
+            <div class="lesson" v-for="lesson in sortedLessons">
+                <div class="lesson-wrapper">
+                    <div class="image" v-bind:style="{ 'background-image': 'url(' + lesson.image + ')' }"></div>
+                    <div class="info">
+                        <div class="name">{{ lesson.name }}</div>
+                        <div class="location">in {{ lesson.location }}</div>
+                        <div class="avai-spaces">Spaces left: {{ lesson.availableSpaces }}</div>
+                        <div class="price">£{{ lesson.price }}</div>
+                        <button @click="addToCart(lesson)" :disabled="isAvailable(lesson)">Add to cart</button>
+                    </div>
                 </div>
             </div>
         </main>
+
+        <div v-else>
+            <button @click="cartHidden = true" class="cart-btn">close</button>
+
+            <ul>
+                <li v-for="(item, index) in cart">{{ item.lesson.name }} {{ item.quantity }} <a href="" @click="removeFromCart(index, $event)">remove</a></li>
+            </ul>
+        </div>
+
 
     </div>
 

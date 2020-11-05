@@ -3,7 +3,7 @@ let lessons = [
         id: 1,
         name: 'Music',
         description: 'Lorem ipsum',
-        image: 'coming.jpg',
+        image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
         location: 'London',
         price: 30,
         availableSpaces: 5
