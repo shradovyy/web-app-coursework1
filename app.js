@@ -4,7 +4,7 @@ let app = new Vue({
         sitename: 'After school classes & activities',
         cart: [],
         lessons: lessons,
-        cartHidden: true,
+        cartShown: false,
         filters: ['name', 'location', 'price'],
         orderBy: ['ascending', 'descending'],
         selectedFilter: 'name',
@@ -48,6 +48,18 @@ let app = new Vue({
         },
         isSelectedOrder(order) {
             return order == this.selectedOrder ? true : false;
+        },
+        decreaseQuantity(item) {
+            if(item.quantity > 1) {
+                item.quantity--;
+                item.lesson.availability++;
+            }
+        },
+        increaseQuantity(item) {
+            if(item.lesson.availability >= 1) {
+                item.quantity++;
+                item.lesson.availability--;
+            }
         }
     },
     computed: {
@@ -77,6 +89,9 @@ let app = new Vue({
                 return 0; 
             }
             return lessonsArray.sort(compare); 
+        },
+        isCartShown() {
+            return this.cartShown;
         }
     }
 });

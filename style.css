@@ -18,7 +18,7 @@ button {
     border: 0;
     color: #fff;
     background: #42b983;
-    height: 40px;
+    height: 45px;
     width: 100%;
     border-radius: 5px;
     font-size: 14px;
@@ -29,6 +29,18 @@ button {
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
 }
+
+button.outline {
+    border: 2px solid #42b983;
+    color: #42b983;
+    background: transparent;
+}
+
+button.outline:hover {
+    color: #fff;
+    background: #42b983;
+}
+
 
 button:disabled {
     color: #ccc;
@@ -93,17 +105,49 @@ nav .container {
     top: 50px;
     right: 50px;
     z-index: 5;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    color: #CD5C5C;
+    border: 2px solid #CD5C5C;
+}
+
+.close-cart i {
+    margin: 0;
 }
 
 .cart-content {
     position: absolute;
     top: 0;
     right: 0;
-    background: #fff;
+    background: #f6f6f6;
     width: 500px;
     height: 100%;
     z-index: 4;
     padding: 50px;
+    transform: translateX(100%);
+}
+
+.cart.hideCart {
+    display: none;
+}
+
+.cart.showCart {
+    display: block;
+}
+
+.showCart .cart-content {
+    animation: slideLeft 0.3s forwards;
+}
+
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 
 .cart-content .title {
@@ -116,15 +160,18 @@ nav .container {
 
 .cart-items .item {
     min-height: 100px;
-    background: #f9f9f9;
-    border-radius: 5px;
+    box-shadow: 0px 0px 6px 4px rgba(0,0,0,0.04);
+    border-radius: 10px;
     padding: 20px;
     position: relative;
+    margin-bottom: 20px;
+    background: #fff;
 }
 
 .cart-items .item .name {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .cart-items .item .price {
@@ -132,6 +179,8 @@ nav .container {
     top: 20px;
     right: 20px;
     color: #42b983;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .cart-items .quantity-selection {
@@ -296,3 +345,18 @@ main {
     color: #42b983;
     border-bottom: 2px solid #42b983;
 }  
+
+.cart-is-empty {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.cart-is-empty .text {
+    margin-bottom: 50px;
+}
+
