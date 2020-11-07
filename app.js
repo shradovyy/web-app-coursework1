@@ -4,7 +4,11 @@ let app = new Vue({
         sitename: 'After school classes & activities',
         cart: [],
         lessons: lessons,
-        cartHidden: true
+        cartHidden: true,
+        filters: ['Name', 'Location', 'Availability', 'Price'],
+        orderBy: ['Asc', 'Desc'],
+        selectedFilter: 'Name',
+        selectedOrder: 'Asc'
     }, 
     methods: {
         addToCart(lesson) {
@@ -42,6 +46,12 @@ let app = new Vue({
             this.cart[id].lesson.availableSpaces += this.cart[id].quantity;
             this.cart.splice(id, 1);
 
+        },
+        isSelectedFilter(filter) {
+            return filter == this.selectedFilter ? true : false;
+        },
+        isSelectedOrder(order) {
+            return order == this.selectedOrder ? true : false;
         }
     },
     computed: {
