@@ -45,6 +45,39 @@ nav {
     font-size: 22px;
 }
 
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-btn {
+    height: 40px;
+    padding: 0 20px;
+    width: auto;
+    border: 1px solid #42b983;
+    background: transparent;
+    color: #42b983;
+    transition: ease 0.5s;
+    outline: none;
+}
+
+.cart-btn:disabled {
+    color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ddd;
+    background: transparent;
+}
+
+.cart-btn i {
+    margin-left: 20px;
+}
+
 .cart {
     position: fixed;
     top: 0;

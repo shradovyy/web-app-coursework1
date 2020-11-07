@@ -51,6 +51,13 @@ let app = new Vue({
         hasItemInCart() {
             return (this.cartCount <= 0) ? false : true;
         },
+        cartTotal() {
+           let total = 0;
+           this.cart.forEach(item => {
+            total += item.lesson.price * item.quantity;
+           });
+           return total.toFixed(2);
+        },
         sortedLessons() {
             let lessonsArray = this.lessons.slice(0); 
             function compare(a, b) {

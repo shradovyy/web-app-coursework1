@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>After school classes & activities</title>
     <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,12 +13,16 @@
 
     <div id="app">
 
-        <nav>{{ sitename }}</nav>
-        
+        <nav>
+            <div class="container">
+                <div>{{ sitename }}</div>
+                <button @click="cartHidden = false" class="cart-btn" :disabled="!hasItemInCart">£{{ cartTotal }}<i class="fas fa-shopping-basket"></i></button>
+            </div>
+        </nav>
+
         
         <main v-if="cartHidden">
-            <button v-show="hasItemInCart" @click="cartHidden = false" class="cart-btn">{{ cartCount }} cart</button>
-
+            
             <div class="lesson" v-for="lesson in sortedLessons">
                 <div class="lesson-wrapper">
                     <div class="image" v-bind:style="{ 'background-image': 'url(' + lesson.image + ')' }"></div>
