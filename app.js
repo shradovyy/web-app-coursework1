@@ -5,18 +5,15 @@ let app = new Vue({
         cart: [],
         lessons: lessons,
         cartHidden: true,
-        filters: ['Name', 'Location', 'Availability', 'Price'],
-        orderBy: ['Asc', 'Desc'],
-        selectedFilter: 'Name',
-        selectedOrder: 'Asc'
+        filters: ['name', 'location', 'price', 'availability'],
+        orderBy: ['ascending', 'descending'],
+        selectedFilter: 'name',
+        selectedOrder: 'ascending'
     }, 
     methods: {
         addToCart(lesson) {
-            if(lesson.availableSpaces > 0) {
-                lesson.availableSpaces--;
-
-
-
+            if(lesson.availability > 0) {
+                lesson.availability--;
                 let exists = false;
                 this.cart.forEach(item => {
                     if(item.lesson == lesson) {
@@ -32,18 +29,17 @@ let app = new Vue({
                     });
                 }
 
-
             } 
         },
         isAvailable(lesson) {
-            return (lesson.availableSpaces <= 0) ? true : false;
+            return (lesson.availability <= 0) ? true : false;
         }, 
         removeFromCart(id, event) {
             if(event) {
                 event.preventDefault();
             }
 
-            this.cart[id].lesson.availableSpaces += this.cart[id].quantity;
+            this.cart[id].lesson.availability += this.cart[id].quantity;
             this.cart.splice(id, 1);
 
         },
@@ -70,9 +66,14 @@ let app = new Vue({
         },
         sortedLessons() {
             let lessonsArray = this.lessons.slice(0); 
+            let that = this;
             function compare(a, b) {
-                if (a.availableSpaces > b.availableSpaces) return 1;
-                if (a.availableSpaces < b.availableSpaces) return -1;
+                if (a[that.selectedFilter] > b[that.selectedFilter]) {
+                    return that.selectedOrder == 'ascending' ? 1 : -1;
+                }
+                if (a[that.selectedFilter] < b[that.selectedFilter]) {
+                    return that.selectedOrder == 'ascending' ? -1 : 1;
+                }
                 return 0; 
             }
             return lessonsArray.sort(compare); 
