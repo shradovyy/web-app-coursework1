@@ -5,7 +5,7 @@ let app = new Vue({
         cart: [],
         lessons: lessons,
         cartHidden: true,
-        filters: ['name', 'location', 'price', 'availability'],
+        filters: ['name', 'location', 'price'],
         orderBy: ['ascending', 'descending'],
         selectedFilter: 'name',
         selectedOrder: 'ascending'
