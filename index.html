@@ -35,7 +35,7 @@
             </div>
         </div>
         
-        <main v-if="cartHidden">
+        <main>
             
             <div class="lesson" v-for="lesson in sortedLessons">
                 <div class="lesson-wrapper">
@@ -51,12 +51,29 @@
             </div>
         </main>
 
-        <div v-else>
-            <button @click="cartHidden = true" class="cart-btn">close</button>
 
-            <ul>
-                <li v-for="(item, index) in cart">{{ item.lesson.name }} {{ item.quantity }} <a href="" @click="removeFromCart(index, $event)">remove</a></li>
-            </ul>
+        <div class="cart">
+            <button @click="cartHidden = true" class="cart-btn close-cart">close</button>
+
+            <div class="cart-content">
+
+                <div class="title">Total: £{{ cartTotal }}</div>
+
+                <div class="cart-items">
+                    <div class="item" v-for="(item, index) in cart">
+                        <div class="name">{{ item.lesson.name }}</div>
+                        <div class="price">£{{ item.lesson.price }}</div>
+                        <div class="quantity-selection">
+                            <button><i class="fas fa-minus"></i></button><span>{{ item.quantity }}</span><button><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="remove-link"><a href="" @click="removeFromCart(index, $event)">remove</a></div>
+                    </div>
+                </div>
+
+            </div>
+            
+
+
         </div>
 
 
