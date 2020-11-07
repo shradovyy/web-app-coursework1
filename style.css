@@ -190,7 +190,7 @@ main {
     background: transparent;
     color: rgba(0, 0, 0, 0.5);
     font-size: 12px;
-    text-transform: none;
+    text-transform: capitalize;
     width: auto;
     padding: 0 15px;
     outline: none;

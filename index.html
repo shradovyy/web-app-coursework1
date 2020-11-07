@@ -43,7 +43,7 @@
                     <div class="info">
                         <div class="name">{{ lesson.name }}</div>
                         <div class="location">in {{ lesson.location }}</div>
-                        <div class="avai-spaces">Spaces left: {{ lesson.availableSpaces }}</div>
+                        <div class="avai-spaces">Spaces left: {{ lesson.availability }}</div>
                         <div class="price">£{{ lesson.price }}</div>
                         <button @click="addToCart(lesson)" :disabled="isAvailable(lesson)">Add to cart</button>
                     </div>
