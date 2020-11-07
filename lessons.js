@@ -1,21 +1,21 @@
 let lessons = [
     {
         id: 1,
-        name: 'Music',
+        name: 'B',
         description: 'Lorem ipsum',
         image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
         location: 'London',
         price: 30,
-        availableSpaces: 5
+        availability: 5
     },
     {
         id: 2,
-        name: 'Maths',
+        name: 'A',
         description: 'Lorem ipsum',
         image: 'coming.jpg',
-        location: 'London',
-        price: 30,
-        availableSpaces: 5
+        location: 'Manchester',
+        price: 45,
+        availability: 5
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ let lessons = [
         image: 'coming.jpg',
         location: 'London',
         price: 30,
-        availableSpaces: 5
+        availability: 5
     },
     {
         id: 4,
@@ -33,7 +33,7 @@ let lessons = [
         image: 'coming.jpg',
         location: 'London',
         price: 30,
-        availableSpaces: 5
+        availability: 5
     },
     {
         id: 5,
@@ -42,7 +42,7 @@ let lessons = [
         image: 'coming.jpg',
         location: 'London',
         price: 30,
-        availableSpaces: 5
+        availability: 5
     },
     {
         id: 6,
@@ -51,7 +51,7 @@ let lessons = [
         image: 'coming.jpg',
         location: 'London',
         price: 30,
-        availableSpaces: 5
+        availability: 5
     },
     {
         id: 7,
@@ -60,7 +60,7 @@ let lessons = [
         image: 'coming.jpg',
         location: 'London',
         price: 30,
-        availableSpaces: 5
+        availability: 5
     },
     {
         id: 8,
@@ -69,7 +69,7 @@ let lessons = [
         image: 'coming.jpg',
         location: 'London',
         price: 30,
-        availableSpaces: 5
+        availability: 5
     },
     {
         id: 9,
@@ -78,7 +78,7 @@ let lessons = [
         image: 'coming.jpg',
         location: 'London',
         price: 30,
-        availableSpaces: 5
+        availability: 5
     },
     {
         id: 10,
@@ -87,6 +87,6 @@ let lessons = [
         image: 'coming.jpg',
         location: 'London',
         price: 30,
-        availableSpaces: 5
+        availability: 5
     }
 ]
