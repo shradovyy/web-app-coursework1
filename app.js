@@ -24,8 +24,8 @@ let app = new Vue({
     }, 
     methods: {
         addToCart(lesson) {
-            if(lesson.availability > 0) {
-                lesson.availability--;
+            if(this.getAvailability(lesson) > 0) {
+                
                 let exists = false;
                 this.cart.forEach(item => {
                     if(item.lesson == lesson) {
@@ -43,18 +43,24 @@ let app = new Vue({
 
             } 
         },
+        countInCart(lesson) {
+            let count = 0;
+            this.cart.forEach(item => {
+                if(item.lesson === lesson) {
+                    count = item.quantity;
+                }
+            });
+            return count;
+        },
+        getAvailability(lesson) {
+            return lesson.availability - this.countInCart(lesson);
+        },
+        removeFromCart(index, event) {
+            if(event) event.preventDefault();
+            this.cart.splice(index, 1);
+        },
         isAvailable(lesson) {
-            return (lesson.availability <= 0) ? true : false;
-        }, 
-        removeFromCart(id, event) {
-            console.log(id);
-            if(event) {
-                event.preventDefault();
-            }
-
-            this.cart[id].lesson.availability += this.cart[id].quantity;
-            this.cart.splice(id, 1);
-
+            return (this.getAvailability(lesson) <= 0) ? true : false;
         },
         isSelectedFilter(filter) {
             return filter == this.selectedFilter ? true : false;
@@ -65,22 +71,16 @@ let app = new Vue({
         decreaseQuantity(item) {
             if(item.quantity > 1) {
                 item.quantity--;
-                item.lesson.availability++;
             }
         },
         increaseQuantity(item) {
-            if(item.lesson.availability >= 1) {
+            if(this.getAvailability(item.lesson) >= 1) {
                 item.quantity++;
-                item.lesson.availability--;
             }
         },
         checkout() {
             alert('The order has been submitted.');
-
-            this.cart.forEach((item, index) => {
-                this.removeFromCart(index);
-            });
-
+            this.cart = [];
         }
     },
     computed: {
@@ -115,11 +115,7 @@ let app = new Vue({
             return this.cartShown; 
         },
         isValidCheckout() {
-            if(!this.order.name.error && !this.order.phone.error) {
-                return true;
-            } else {
-                return false;
-            }
+            return !this.order.name.error && !this.order.phone.error;
         }, 
         isValidName() {
             let item = this.order.name;
