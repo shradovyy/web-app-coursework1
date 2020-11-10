@@ -55,9 +55,11 @@
         <div class="cart hideCart" v-bind:class="{ showCart: isCartShown }">
 
             <div class="cart-content">
+
                 <button @click="cartShown = false" class="cart-btn close-cart"><i class="fas fa-times"></i></button>
                 <div class="title">Total: £{{ cartTotal }}</div>
 
+                
                 <div class="cart-items" v-if="hasItemInCart">
                     <div class="item" v-for="(item, index) in cart">
                         <div class="name">{{ item.lesson.name }}</div>
@@ -67,11 +69,38 @@
                         </div>
                         <div class="remove-link"><a href="" @click="removeFromCart(index, $event)">remove</a></div>
                     </div>
+
+
+                    <div class="checkoutform">
+
+                        <h2>Checkout</h2>
+
+                        <form action="" method="POST">
+                            <div class="form-field">
+                                <label for="name">Name:</label>
+                                <input type="text" name="name" placeholder="Enter your name" v-model.trim="order.name.value">
+                                <span class="error">{{ isValidName }}</span>
+                            </div>
+    
+                            <div class="form-field">
+                                <label for="phone">Phone:</label>
+                                <input type="text" name="phone" placeholder="Enter your phone number" v-model.trim.number="order.phone.value">
+                                <span class="error">{{ isValidPhone }}</span>
+                            </div>
+    
+                            <button type="button" @click="checkout" :disabled="!isValidCheckout">Checkout</button>
+    
+                        </form>
+                    </div>
+
+
                 </div>
                 <div class="cart-is-empty" v-else>
                     <div class="text">Your cart is empty.</div>
                     <button class="outline" @click="cartShown = false">View classes & activities</button>
                 </div>
+
+                
 
             </div>
             

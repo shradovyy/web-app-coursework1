@@ -8,7 +8,19 @@ let app = new Vue({
         filters: ['name', 'location', 'price'],
         orderBy: ['ascending', 'descending'],
         selectedFilter: 'name',
-        selectedOrder: 'ascending'
+        selectedOrder: 'ascending',
+        order: {
+            name: {
+                value: '',
+                error: false,
+                errorMessage: ''
+            },
+            phone: {
+                value: '',
+                error: false,
+                errorMessage: ''
+            }
+        }
     }, 
     methods: {
         addToCart(lesson) {
@@ -35,6 +47,7 @@ let app = new Vue({
             return (lesson.availability <= 0) ? true : false;
         }, 
         removeFromCart(id, event) {
+            console.log(id);
             if(event) {
                 event.preventDefault();
             }
@@ -60,6 +73,14 @@ let app = new Vue({
                 item.quantity++;
                 item.lesson.availability--;
             }
+        },
+        checkout() {
+            alert('The order has been submitted.');
+
+            this.cart.forEach((item, index) => {
+                this.removeFromCart(index);
+            });
+
         }
     },
     computed: {
@@ -90,8 +111,58 @@ let app = new Vue({
             }
             return lessonsArray.sort(compare); 
         },
-        isCartShown() {
-            return this.cartShown;
+        isCartShown() { 
+            return this.cartShown; 
+        },
+        isValidCheckout() {
+            if(!this.order.name.error && !this.order.phone.error) {
+                return true;
+            } else {
+                return false;
+            }
+        }, 
+        isValidName() {
+            let item = this.order.name;
+
+            if(item.value.length <= 0) {
+                item.error = true;
+                item.errorMessage = 'required';
+                return item.errorMessage;
+            }
+
+            let test = /^[a-zA-Z ]+$/.test(item.value);
+
+            if(test) {
+                item.error = false;
+                item.errorMessage = '';
+                return item.errorMessage;
+            } 
+
+            item.error = true;
+            item.errorMessage = 'invalid format';
+            return item.errorMessage;
+            
+        }, 
+        isValidPhone() {
+
+            let item = this.order.phone;
+
+            if(item.value.length <= 0) {
+                item.error = true;
+                item.errorMessage = 'required';
+                return item.errorMessage;
+            }
+
+            if(typeof item.value == 'number') {
+                item.error = false;
+                item.errorMessage = '';
+                return item.errorMessage;
+            }
+
+            item.error = true;
+            item.errorMessage = 'invalid format';
+            return item.errorMessage;
+
         }
     }
 });

@@ -30,7 +30,7 @@ button {
     cursor: pointer;
 }
 
-button.outline {
+button.outine {
     border: 2px solid #42b983;
     color: #42b983;
     background: transparent;
@@ -358,5 +358,51 @@ main {
 
 .cart-is-empty .text {
     margin-bottom: 50px;
+}
+
+.checkoutform {
+    box-shadow: 0px 0px 6px 4px rgba(0,0,0,0.04);
+    border-radius: 10px;
+    padding: 20px;
+    background: #fff;
+}
+
+.checkoutform h2 {
+    font-size: 14px;
+    margin: 0 0 20px 0;
+    padding: 0;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.form-field {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-field input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    outline: none;
+    padding: 0 15px;
+}
+
+.form-field label {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.form-field .error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: red;
 }
 
