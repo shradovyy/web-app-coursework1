@@ -2,7 +2,7 @@ let lessons = [
     {
         id: 1,
         name: 'Football',
-        image: 'images/football.jpeg',
+        image: 'icons/football-ball.png',
         location: 'Acton Central',
         price: 120,
         availability: 10
@@ -10,7 +10,7 @@ let lessons = [
     {
         id: 2,
         name: 'Tennis',
-        image: 'images/tennis.jpeg',
+        image: 'icons/ball.png',
         location: 'Watford',
         price: 100,
         availability: 5
@@ -18,7 +18,7 @@ let lessons = [
     {
         id: 3,
         name: 'Guitar',
-        image: 'images/guitar.jpeg',
+        image: 'icons/guitar.png',
         location: 'Acton Central',
         price: 45,
         availability: 5
@@ -26,7 +26,7 @@ let lessons = [
     {
         id: 4,
         name: 'Maths',
-        image: 'images/maths.jpeg',
+        image: 'icons/calculator.png',
         location: 'Acton Central',
         price: 25,
         availability: 5
@@ -34,7 +34,7 @@ let lessons = [
     {
         id: 5,
         name: 'Swimming',
-        image: 'images/swimming.jpg',
+        image: 'icons/swimming.png',
         location: 'Wembley',
         price: 30,
         availability: 5
@@ -42,7 +42,7 @@ let lessons = [
     {
         id: 6,
         name: 'Geography',
-        image: 'images/geography.jpeg',
+        image: 'icons/locations.png',
         location: 'London',
         price: 30,
         availability: 5
@@ -50,7 +50,7 @@ let lessons = [
     {
         id: 7,
         name: 'English',
-        image: 'images/english.jpg',
+        image: 'icons/english-language.png',
         location: 'London',
         price: 30,
         availability: 5
@@ -58,7 +58,7 @@ let lessons = [
     {
         id: 8,
         name: 'Spanish',
-        image: 'images/spanish.jpg',
+        image: 'icons/spanish-language.png',
         location: 'London',
         price: 30,
         availability: 5
@@ -66,7 +66,7 @@ let lessons = [
     {
         id: 9,
         name: 'French',
-        image: 'images/french.png',
+        image: 'icons/french.png',
         location: 'London',
         price: 30,
         availability: 5
@@ -74,7 +74,7 @@ let lessons = [
     {
         id: 10,
         name: 'Basketball',
-        image: 'images/basketball.jpeg',
+        image: 'icons/basketball-ball.png',
         location: 'London',
         price: 30,
         availability: 5
