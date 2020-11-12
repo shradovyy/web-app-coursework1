@@ -13,6 +13,10 @@ body {
     background: #f6f6f6;
 }
 
+.body-no-scroll {
+    overflow: hidden;
+}
+
 button {
     background: none;
     border: 0;
@@ -126,6 +130,7 @@ nav .container {
     z-index: 4;
     padding: 50px;
     transform: translateX(100%);
+    overflow-y: auto;
 }
 
 .cart.hideCart {
@@ -172,6 +177,11 @@ nav .container {
     font-weight: bold;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
+}
+
+.cart-items .item .location {
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .cart-items .item .price {
@@ -241,14 +251,17 @@ main {
     border: 1px solid #eee;
 }
 
+
+
 .lesson-wrapper .image {
     padding-top: 75%;
     background-color: #eee;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
 }
+
+
 
 .lesson-wrapper .info {
     padding: 30px;

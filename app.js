@@ -81,6 +81,16 @@ let app = new Vue({
         checkout() {
             alert('The order has been submitted.');
             this.cart = [];
+        },
+        displayCart(value) {
+
+            this.cartShown = value;
+            if(value) {
+                document.body.classList.add('body-no-scroll');
+            } else {
+                document.body.classList.remove('body-no-scroll');
+            }
+
         }
     },
     computed: {
@@ -135,7 +145,7 @@ let app = new Vue({
             } 
 
             item.error = true;
-            item.errorMessage = 'invalid format';
+            item.errorMessage = 'only letters allowed';
             return item.errorMessage;
             
         }, 
@@ -149,14 +159,16 @@ let app = new Vue({
                 return item.errorMessage;
             }
 
-            if(typeof item.value == 'number') {
+            let test = /^\d+$/.test(item.value);
+            
+            if(test) {
                 item.error = false;
                 item.errorMessage = '';
                 return item.errorMessage;
-            }
+            } 
 
             item.error = true;
-            item.errorMessage = 'invalid format';
+            item.errorMessage = 'only numbers allowed';
             return item.errorMessage;
 
         }
