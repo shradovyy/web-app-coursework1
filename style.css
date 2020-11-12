@@ -178,6 +178,13 @@ nav .container {
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.cart-items .item .icon {
+    width: 25px;
+    margin-right: 10px;
 }
 
 .cart-items .item .location {
@@ -259,11 +266,11 @@ main {
 
 
 .lesson-wrapper .image {
-    padding-top: 75%;
-    background-color: #eee;
+    padding-top: 50%;
+    background-color: #f1f1f1;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100px;
+    background-size: 75px;
 }
 
 
