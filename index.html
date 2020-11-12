@@ -62,7 +62,7 @@
                     <div class="item" v-for="(item, index) in cart">
                         <div class="name">{{ item.lesson.name }}</div>
                         <div class="location">in {{ item.lesson.location }}</div>
-                        <div class="price">£{{ item.lesson.price }}</div>
+                        <div class="price"><span class="grayish">{{ item.quantity }} x</span> £{{ item.lesson.price }}</div>
                         <div class="quantity-selection">
                             <button @click="decreaseQuantity(item)"><i class="fas fa-minus"></i></button><span>{{ item.quantity }}</span><button @click="increaseQuantity(item)"><i class="fas fa-plus"></i></button>
                         </div>

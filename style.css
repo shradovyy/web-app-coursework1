@@ -193,6 +193,11 @@ nav .container {
     font-family: 'Roboto', sans-serif;
 }
 
+.cart-items .price .grayish {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+}
+
 .cart-items .quantity-selection {
     display: flex;
     height: 30px;
